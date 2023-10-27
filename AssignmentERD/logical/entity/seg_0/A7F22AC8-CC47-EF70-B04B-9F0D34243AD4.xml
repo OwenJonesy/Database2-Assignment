@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A7F22AC8-CC47-EF70-B04B-9F0D34243AD4" name="instructor">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:01:07 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="instructorid" id="72E4C656-03BE-34B8-7347-B3653ED6BA61">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:01:15 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="73DC2E2A-C7A5-C276-15F6-F9EFB418781F">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:01:29 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="availability" id="B3643F14-4BE8-6A92-6865-E13DBE7D9286">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:01:40 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2A62F1E7-4307-60B8-CB51-9DAFE32B0DC6" name="instructor PK">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:01:24 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>72E4C656-03BE-34B8-7347-B3653ED6BA61</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5B5FAD22-6BBF-9979-557D-78F3B1C40B32" name="lesson">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:09:37 UTC</createdTime>
+<generatorID>82E498B7-6E73-9320-9014-EA32A51A4306</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="lessonid" id="629B1C40-345C-4742-D597-04EE5D1EE424">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:09:37 UTC</createdTime>
+<generatorID>17A3178C-CAEF-8C53-33CE-A8BD14521328</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="lessonnumber" id="10E83898-030E-BF8F-1C2F-9DB33CE7BA45">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:09:37 UTC</createdTime>
+<generatorID>7F65A99A-EE57-EF09-1D59-9C50F103A653</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="lessontopic" id="C9EC49CB-5CD3-ABFF-BF19-C6DCC488FEAC">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:09:37 UTC</createdTime>
+<generatorID>9CFB2724-0718-6A80-C85D-5620C417C643</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A9CD94DA-F414-F60A-089D-4292CAFB61AC" name="lesson_PK">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:09:37 UTC</createdTime>
+<generatorID>3E16ED0F-5D17-FEF8-BB50-386288D975AC</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="629B1C40-345C-4742-D597-04EE5D1EE424"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

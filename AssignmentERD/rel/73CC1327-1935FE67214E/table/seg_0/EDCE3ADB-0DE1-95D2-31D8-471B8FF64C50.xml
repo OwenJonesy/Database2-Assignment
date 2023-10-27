@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EDCE3ADB-0DE1-95D2-31D8-471B8FF64C50" name="assessment">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:09:37 UTC</createdTime>
+<generatorID>337BD1E2-E704-8C45-AC42-84CEC98C8BC3</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="assessmentid" id="166E14E0-769E-932E-8304-527468F04A58">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:09:37 UTC</createdTime>
+<generatorID>43E8F45B-DF16-1ECF-0F65-BB7C80D67133</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="instructor_instructorid" id="80B81597-4706-72C9-34BD-A0EA50268B3A">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:13:31 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EDB5BC6D-2E70-E59E-BBE3-F5E4B84CE84C" referredColumn="D829F353-4A5C-D9FC-CFF5-69A38CDA2E29"/>
+</associations>
+</Column>
+<Column name="drivingstudent_studentid" id="582E6B8F-DCF5-9283-8A5A-545CA1BA6B02">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:13:36 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E31BF893-9DA1-560B-88DE-FFA3736F42CA" referredColumn="EBA2D214-74F5-7F13-574B-E9416149FE3D"/>
+</associations>
+</Column>
+<Column name="estimatedlessons" id="B9A47DD4-7818-7F8B-150F-39BA2CA344E1">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:09:37 UTC</createdTime>
+<generatorID>182A4152-FE52-61B5-160A-7AE65EA6F7AF</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="assessmentdate" id="2A391FDC-5CCB-BAEA-21D2-0C771B3E562B">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:09:37 UTC</createdTime>
+<generatorID>72FA4359-CAAD-67F6-2689-8B0B8F6515AF</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3F21D749-9866-3F1C-9F85-0B49788FB66C" name="assessment_PK">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:09:37 UTC</createdTime>
+<generatorID>DC88FD9D-6272-54D3-F2CA-A4E608141D18</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="166E14E0-769E-932E-8304-527468F04A58"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="486C3A67-CB81-36DB-A9EA-A683016E6103" name="assessment_instructor_FK">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:13:31 UTC</createdTime>
+<generatorID>2A62F1E7-4307-60B8-CB51-9DAFE32B0DC6</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="80B81597-4706-72C9-34BD-A0EA50268B3A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FB04CDCB-4ABD-08A8-60A8-266E1C42EAB2" name="assessment_drivingstudent_FK">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:13:36 UTC</createdTime>
+<generatorID>B09A45C7-7D5C-7320-1F1F-A38F9C19BBD8</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="582E6B8F-DCF5-9283-8A5A-545CA1BA6B02"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

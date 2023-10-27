@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Booking_lesson_FK" directorySegmentName="seg_0" id="3CE29856-60A5-D74C-0784-8D7F6807C8B6">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:16:04 UTC</createdTime>
+<generatorID>6C1272E3-9F66-0056-AC1D-C4A16E02949A</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<sourcePk>3E16ED0F-5D17-FEF8-BB50-386288D975AC</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>82E498B7-6E73-9320-9014-EA32A51A4306</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>618804AC-D408-4E3A-B06E-BCF77A9B3771</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

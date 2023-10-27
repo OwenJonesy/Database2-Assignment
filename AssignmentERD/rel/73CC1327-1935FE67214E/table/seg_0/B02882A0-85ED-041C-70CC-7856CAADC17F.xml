@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B02882A0-85ED-041C-70CC-7856CAADC17F" name="bookingstaff">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 20:58:25 UTC</createdTime>
+<generatorID>D60C6516-6E91-DB25-6CA6-303C8253230F</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="staffid" id="1DC043D6-DDB0-A933-5A06-6F1B0BC73B6A">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 20:58:25 UTC</createdTime>
+<generatorID>AF1F80AC-7263-C661-F5C9-3F9E553FDD44</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="86790CAC-8EC1-9BC3-53DD-3B56BA538A11">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 20:58:25 UTC</createdTime>
+<generatorID>0F226099-FDF7-CC18-E755-548953539796</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="role" id="FA4E5433-1E85-C88C-277C-0A5D37F65729">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 20:58:25 UTC</createdTime>
+<generatorID>88B0FD6F-7203-B7FE-2AE0-3D9E18E683F3</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5DA9B9DE-9E3D-5215-00E6-924039DD8D0B" name="bookingstaff_PK">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 20:58:25 UTC</createdTime>
+<generatorID>BCA7CDE8-299B-883F-C484-DF99D2FF012B</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1DC043D6-DDB0-A933-5A06-6F1B0BC73B6A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

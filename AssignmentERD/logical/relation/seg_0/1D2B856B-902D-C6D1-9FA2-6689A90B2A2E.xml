@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Booking_car_FK" directorySegmentName="seg_0" id="1D2B856B-902D-C6D1-9FA2-6689A90B2A2E">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:16:04 UTC</createdTime>
+<generatorID>D4757FFD-C980-25AD-BFBA-270436933898</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<sourcePk>E1D2068F-4EF2-8751-BFA8-F2632ECBBE43</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>505D28BA-446C-70F6-7E2F-6AD6224970FA</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>618804AC-D408-4E3A-B06E-BCF77A9B3771</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
