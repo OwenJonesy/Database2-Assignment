@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION ApplyPaymentTrigger() RETURNS TRIGGER AS $$
+BEGIN
+    -- Call the ApplyPayment function with the appropriate student ID and payment amount
+    PERFORM ApplyPayment(NEW.StudentID, NEW.Amount);
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Create the trigger
+CREATE TRIGGER PaymentTrigger
+AFTER INSERT ON Payment
+FOR EACH ROW
+EXECUTE FUNCTION ApplyPaymentTrigger();

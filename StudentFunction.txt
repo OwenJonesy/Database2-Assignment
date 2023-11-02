@@ -1,0 +1,32 @@
+CREATE OR REPLACE FUNCTION ApplyPayment(
+    student_id INT,
+    amount DECIMAL(10, 2)
+) RETURNS BOOLEAN AS $$
+DECLARE
+    current_due DECIMAL(10, 2);
+BEGIN
+    -- Retrieve the current amount due for the student
+    SELECT AmountDue INTO current_due
+    FROM DrivingStudent
+    WHERE StudentID = student_id;
+
+    -- Check if the payment amount is greater than or equal to the current due
+    IF amount >= current_due THEN
+        -- Update the student's amount due to 0
+        UPDATE DrivingStudent
+        SET AmountDue = 0
+        WHERE StudentID = student_id;
+    ELSE
+        -- Update the student's amount due by deducting the payment amount
+        UPDATE DrivingStudent
+        SET AmountDue = current_due - amount
+        WHERE StudentID = student_id;
+    END IF;
+
+    -- Insert the payment record
+    INSERT INTO Payment (StudentID, Amount, PaymentDate, PaymentMethod)
+    VALUES (student_id, amount, CURRENT_DATE, 'Credit Card');
+
+    RETURN TRUE;
+END;
+$$ LANGUAGE plpgsql;
