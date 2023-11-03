@@ -1,40 +1,5 @@
-Assessment Table:
+-- Grant SELECT, INSERT, UPDATE permissions on the "Assessment" table
+GRANT SELECT, INSERT, UPDATE ON TABLE Assessment TO instructor;
 
-SELECT privilege to read assessments.
-INSERT privilege if you need to insert new assessments.
-UPDATE privilege if you need to update existing assessments.
-You can grant these privileges using SQL statements like:
-
-GRANT SELECT ON Assessment TO instructor_role;
-GRANT INSERT, UPDATE ON Assessment TO instructor_role;
-
-
----------------------------------------------------------------------------------------
-Instructor Table:
-
-SELECT privilege to read instructor information.
-INSERT privilege if you need to add new instructor records.
-UPDATE privilege if you need to update existing instructor information.
-You can grant these privileges using SQL statements like:
-
-
-GRANT SELECT ON Instructor TO instructor_role;
-GRANT INSERT, UPDATE ON Instructor TO instructor_role;
-Lesson Table:
-
-
-
----------------------------------------------------------------------------------------
-SELECT privilege to read lesson information.
-INSERT privilege if you need to add new lesson records.
-UPDATE privilege if you need to update existing lesson information.
-You can grant these privileges using SQL statements like:
-
-
-GRANT SELECT ON Lesson TO instructor_role;
-GRANT INSERT, UPDATE ON Lesson TO instructor_role;
-
----------------------------------------------------------------------------------------
-These grants will provide you with the necessary permissions to interact with the specified tables as an instructor. 
-Replace instructor_role with the actual role or user name that represents instructors in your database. 
-Make sure to grant these privileges following your organization's security policies and practices.
+-- Grant SELECT, INSERT, UPDATE permissions on the "DrivingStudent" table
+GRANT SELECT, INSERT, UPDATE ON TABLE DrivingStudent TO instructor;
