@@ -1,0 +1,7 @@
+
+
+SELECT InsertPayment(3, 10, '2023-11-03', 'Credit Card');
+
+select * from payment;
+select * from drivingstudent;
+

@@ -1,13 +1,50 @@
-CREATE OR REPLACE FUNCTION ApplyPaymentTrigger() RETURNS TRIGGER AS $$
+-- Updated ApplyPayment Function
+CREATE OR REPLACE FUNCTION ApplyPayment(student_id INT, amount DECIMAL(10, 2))
+RETURNS BOOLEAN AS $$
 BEGIN
-    -- Call the ApplyPayment function with the appropriate student ID and payment amount
-    PERFORM ApplyPayment(NEW.StudentID, NEW.Amount);
+    -- Update the student's amount due by deducting the payment amount
+    UPDATE DrivingStudent
+    SET AmountDue = AmountDue - amount
+    WHERE StudentID = student_id;
+
+    RETURN TRUE;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Deferred ApplyPayment Function
+CREATE OR REPLACE FUNCTION DeferredApplyPayment()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Update the student's amount due by deducting the payment amount
+    UPDATE DrivingStudent
+    SET AmountDue = AmountDue - NEW.Amount
+    WHERE StudentID = NEW.StudentID;
+
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
--- Create the trigger
-CREATE TRIGGER PaymentTrigger
+-- Deferred Payment Trigger
+CREATE OR REPLACE FUNCTION DeferredPaymentTrigger()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Call the ApplyPayment function with the payment details
+    PERFORM ApplyPayment(NEW.StudentID, NEW.Amount);
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Drop the existing trigger
+DROP TRIGGER IF EXISTS deferredpaymenttrigger ON Payment;
+
+
+CREATE TRIGGER DeferredPaymentTrigger
 AFTER INSERT ON Payment
 FOR EACH ROW
-EXECUTE FUNCTION ApplyPaymentTrigger();
+EXECUTE FUNCTION DeferredPaymentTrigger();
+
+
+
+
+
