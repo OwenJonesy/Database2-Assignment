@@ -96,7 +96,7 @@ INSERT INTO Instructor (Name)
 VALUES ('Instructor A'),
        ('Instructor B'),
        ('Instructor C'),
-       ('Instructor D');
+       ('Owen');
 
 -- Insert sample data into the "Lesson" table
 INSERT INTO Lesson (StudentID, LessonNumber, LessonTopic)
@@ -110,7 +110,7 @@ INSERT INTO BookingStaff (Name, Role)
 VALUES ('Staff Member 1', 'Booking Agent'),
        ('Staff Member 2', 'Coordinator'),
        ('Staff Member 3', 'Coordinator'),
-       ('Staff Member 4', 'Booking Agent');
+       ('Gav', 'Booking Agent');
 
 -- Insert sample data into the "Booking" table
 INSERT INTO Booking (StudentID, InstructorID, LessonID, DateTime, StaffID)
