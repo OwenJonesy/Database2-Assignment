@@ -1,4 +1,4 @@
-- Create a trigger to update AmountDue based on EstimatedLessons
+-- Create a trigger to update AmountDue based on EstimatedLessons
 CREATE OR REPLACE FUNCTION UpdateAmountDue()
 RETURNS TRIGGER AS $$
 BEGIN

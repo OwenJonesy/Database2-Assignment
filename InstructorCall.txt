@@ -1,0 +1,8 @@
+
+
+-- student id,lessons, date, instructor id
+SELECT UpdateAssessment(5, 5, '2023-11-15', 3);
+
+select * from ASSESSMENT;
+select * from DRIVINGSTUDENT;
+

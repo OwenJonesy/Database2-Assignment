@@ -1,8 +1,8 @@
--- Modify the UpdateLessonCount stored procedure to limit EstimatedLessons to a maximum of 12
--- Modify the UpdateLessonCount stored procedure to limit EstimatedLessons to a maximum of 12
 CREATE OR REPLACE FUNCTION UpdateLessonCount(
     IN student_id INT,
     IN new_estimated_lessons INT,
+    IN new_assessment_date DATE,
+    IN new_instructor_id INT,
     OUT result text
 )
 AS $$
@@ -11,14 +11,17 @@ BEGIN
     IF new_estimated_lessons > 12 THEN
         result := 'Estimated lessons cannot exceed 12.';
     ELSE
-        -- Update the estimated number of lessons for the given student
+        -- Update the assessment information for the given student
         UPDATE Assessment
-        SET EstimatedLessons = new_estimated_lessons
+        SET
+            EstimatedLessons = new_estimated_lessons,
+            AssessmentDate = new_assessment_date,
+            InstructorID = new_instructor_id
         WHERE StudentID = student_id;
 
         -- Check if the update was successful
         IF FOUND THEN
-            result := 'Estimated lessons updated for Student ' || student_id || ' to ' || new_estimated_lessons;
+            result := 'Assessment updated for Student ' || student_id || ' with Estimated Lessons: ' || new_estimated_lessons;
         ELSE
             result := 'No assessment found for the student.';
         END IF;
@@ -28,44 +31,35 @@ BEGIN
     WHEN OTHERS THEN  
         -- Handle other exceptions 
         result := 'An error occurred.'; 
+    RETURN;  -- Add a RETURN statement here
 END; 
 $$ LANGUAGE plpgsql;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
--- Example of calling the stored procedure to update the estimated lessons for a student
-DO $$
+CREATE OR REPLACE FUNCTION UpdateAssessment(
+    student_id INT,
+    new_estimated_lessons INT,
+    new_assessment_date DATE,
+    new_instructor_id INT
+)
+RETURNS TEXT
+AS $$
 DECLARE
-    student_id INT := 1;  -- Replace with the desired StudentID
-    new_lessons INT := 15;  -- Replace with the new estimated lessons
+    result TEXT;
 BEGIN
-    -- Call the stored procedure to update the estimated lessons
-    PERFORM UpdateLessonCount(student_id, new_lessons);
-    
-    -- Check if the result message indicates a successful update and the new_lessons do not exceed 12
-    IF FOUND AND new_lessons <= 12 THEN
-        RAISE NOTICE 'Estimated lessons updated for Student % to %', student_id, new_lessons;
-    ELSE
-        IF NOT FOUND THEN
-            RAISE NOTICE 'No assessment found for Student %', student_id;
-        ELSE
-            RAISE NOTICE 'An error occurred.';
-        END IF;
-    END IF;
-END;
-$$;
+    -- Call the modified stored procedure to update the assessment information
+    PERFORM UpdateLessonCount(student_id, new_estimated_lessons, new_assessment_date, new_instructor_id);
 
-select * from ASSESSMENT;
-select * from DRIVINGSTUDENT;
+    -- Check if the result message indicates a successful update
+    result := 'Assessment updated for Student ' || student_id;
+
+    RETURN result; -- Add a RETURN statement here
+EXCEPTION
+    WHEN OTHERS THEN
+        -- Handle any exceptions
+        result := 'An error occurred.';
+    
+    RETURN result; -- Add a RETURN statement here
+END;
+$$ LANGUAGE plpgsql;
+
 

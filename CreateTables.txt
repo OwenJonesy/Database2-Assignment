@@ -141,4 +141,3 @@ SELECT * FROM BookingStaff;
 SELECT * FROM Booking;
 SELECT * FROM Assessment;
 SELECT * FROM Payment;
-
