@@ -122,3 +122,17 @@ FOR EACH ROW
 
 EXECUTE FUNCTION check_lesson_constraints();
 
+
+
+
+
+--call function (studentnumber, name, reg, nct , cost)
+
+SELECT add_student(5, 'rach k', 'gdvfghfv', 'Active', null);
+
+
+
+--call function (studentnumbr, instructorid, number lesson, topic ,staff id , date/time)
+
+SELECT create_booking(3, 1, 10, 'Parking Practice', 1, '2023-11-05 14:00:00');
+

@@ -1,25 +1,38 @@
 CREATE OR REPLACE FUNCTION add_student(
+
     student_id INT,
+
     student_name VARCHAR(255),
+
     registration_number VARCHAR(50),
+
     nct_status VARCHAR(50),
+
     amount_due INT
+
 )
+
 RETURNS VOID AS $$
+
 BEGIN
+
     INSERT INTO DrivingStudent (StudentID, Name, RegistrationNumber, NCTStatus, AmountDue)
+
     VALUES (student_id, student_name, registration_number, nct_status, amount_due);
 
     -- Insert a corresponding record into the Assessment table
+
     INSERT INTO Assessment (StudentID) VALUES (student_id);
 
 END;
+
 $$ LANGUAGE plpgsql;
 
 
--- Step 1: Create a function to check for duplicate student IDs when names are different
 
--- Create a function that checks for duplicates before inserting
+-- Create a trigger that checks for duplicates before inserting
+
+
 
 CREATE OR REPLACE FUNCTION check_duplicate_student()
 
@@ -48,6 +61,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 
+
 -- Create a trigger that calls the function before an insert
 
 CREATE TRIGGER before_insert_check_duplicate
@@ -58,15 +72,3 @@ FOR EACH ROW
 
 EXECUTE FUNCTION check_duplicate_student();
 
-
-
-SELECT * FROM DrivingStudent;
-
-
--- Attempt to insert a student with the same name but a different registration number
--- This should trigger the check_duplicate_student function
-
-
-SELECT add_student(5, 'rach k', 'slag', 'Active', null);
-SELECT * FROM DrivingStudent;
-SELECT * FROM assessment;
