@@ -1,10 +1,11 @@
--- Create a trigger to update AmountDue based on EstimatedLessons
+- Create a trigger to update AmountDue based on EstimatedLessons
 CREATE OR REPLACE FUNCTION UpdateAmountDue()
 RETURNS TRIGGER AS $$
 BEGIN
-    UPDATE DrivingStudent
-    SET AmountDue = NEW.EstimatedLessons * 40
-    WHERE StudentID = NEW.StudentID;
+    UPDATE DrivingStudent ds
+    SET AmountDue = a.EstimatedLessons * 40
+    FROM Assessment a
+    WHERE ds.StudentID = a.StudentID;
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;

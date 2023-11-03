@@ -1,4 +1,5 @@
--- Create the UpdateLessonCount stored procedure with a specified return type
+-- Modify the UpdateLessonCount stored procedure to limit EstimatedLessons to a maximum of 12
+-- Modify the UpdateLessonCount stored procedure to limit EstimatedLessons to a maximum of 12
 CREATE OR REPLACE FUNCTION UpdateLessonCount(
     IN student_id INT,
     IN new_estimated_lessons INT,
@@ -6,29 +7,29 @@ CREATE OR REPLACE FUNCTION UpdateLessonCount(
 )
 AS $$
 BEGIN
-    -- Update the estimated number of lessons for the given student
-    UPDATE Assessment
-    SET EstimatedLessons = new_estimated_lessons
-    WHERE StudentID = student_id;
-   
-   -- Set the result to indicate success
-   result := 'Estimated lessons updated successfully.';
-   
-exception 
-    WHEN NO_DATA_FOUND then 
-         -- Handle the case where no assessment is found for the student 
-        result := 'No assessment found for the student.';  
-    WHEN OTHERS then  
+    -- Check if the new_estimated_lessons exceed the maximum allowed (12)
+    IF new_estimated_lessons > 12 THEN
+        result := 'Estimated lessons cannot exceed 12.';
+    ELSE
+        -- Update the estimated number of lessons for the given student
+        UPDATE Assessment
+        SET EstimatedLessons = new_estimated_lessons
+        WHERE StudentID = student_id;
+
+        -- Check if the update was successful
+        IF FOUND THEN
+            result := 'Estimated lessons updated for Student ' || student_id || ' to ' || new_estimated_lessons;
+        ELSE
+            result := 'No assessment found for the student.';
+        END IF;
+    END IF;
+
+    EXCEPTION 
+    WHEN OTHERS THEN  
         -- Handle other exceptions 
         result := 'An error occurred.'; 
 END; 
-$$ LANGUAGE plpgsql; 
-
-
-
-
-
-
+$$ LANGUAGE plpgsql;
 
 
 
@@ -47,19 +48,24 @@ $$ LANGUAGE plpgsql;
 DO $$
 DECLARE
     student_id INT := 1;  -- Replace with the desired StudentID
-    new_lessons INT := 10;  -- Replace with the new estimated lessons
+    new_lessons INT := 15;  -- Replace with the new estimated lessons
 BEGIN
     -- Call the stored procedure to update the estimated lessons
     PERFORM UpdateLessonCount(student_id, new_lessons);
     
-    -- Check if the update was successful
-    IF FOUND THEN
+    -- Check if the result message indicates a successful update and the new_lessons do not exceed 12
+    IF FOUND AND new_lessons <= 12 THEN
         RAISE NOTICE 'Estimated lessons updated for Student % to %', student_id, new_lessons;
     ELSE
-        RAISE NOTICE 'No assessment found for Student %', student_id;
+        IF NOT FOUND THEN
+            RAISE NOTICE 'No assessment found for Student %', student_id;
+        ELSE
+            RAISE NOTICE 'An error occurred.';
+        END IF;
     END IF;
 END;
 $$;
 
+select * from ASSESSMENT;
+select * from DRIVINGSTUDENT;
 
-select * from assessment;
