@@ -1,0 +1,7 @@
+-- Create a trigger that fires when an assessment is inserted or updated
+CREATE TRIGGER UpdateAmountDueTrigger
+AFTER INSERT OR UPDATE
+ON "Drive857A".Assessment
+FOR EACH ROW
+EXECUTE FUNCTION "Drive857A".UpdateAmountDue();
+

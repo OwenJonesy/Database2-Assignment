@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="assessment_instructor_FK" directorySegmentName="seg_0" id="4DEC4AF7-6A26-78AF-3686-DF89C98763A2">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:16:04 UTC</createdTime>
+<generatorID>EDB5BC6D-2E70-E59E-BBE3-F5E4B84CE84C</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<sourcePk>2A62F1E7-4307-60B8-CB51-9DAFE32B0DC6</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A7F22AC8-CC47-EF70-B04B-9F0D34243AD4</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>337BD1E2-E704-8C45-AC42-84CEC98C8BC3</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

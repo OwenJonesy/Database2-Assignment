@@ -1,5 +1,0 @@
--- Grant SELECT, INSERT, UPDATE permissions on the "Assessment" table
-GRANT SELECT, INSERT, UPDATE ON TABLE Assessment TO instructor;
-
--- Grant SELECT, INSERT, UPDATE permissions on the "DrivingStudent" table
-GRANT SELECT, INSERT, UPDATE ON TABLE DrivingStudent TO instructor;

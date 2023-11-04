@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Booking_instructor_FK" directorySegmentName="seg_0" id="06BC1409-5049-DC5A-2D03-61C3328981BB">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:16:04 UTC</createdTime>
+<generatorID>FC71103F-C252-0663-A4C2-A1166B8CBD14</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<sourcePk>2A62F1E7-4307-60B8-CB51-9DAFE32B0DC6</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A7F22AC8-CC47-EF70-B04B-9F0D34243AD4</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>618804AC-D408-4E3A-B06E-BCF77A9B3771</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

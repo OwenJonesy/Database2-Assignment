@@ -1,21 +1,18 @@
-CREATE OR REPLACE FUNCTION InsertPayment(student_id INT, amount DECIMAL(10, 2), payment_date DATE, payment_method VARCHAR(50))
+-- Create or replace the InsertPayment function
+CREATE OR REPLACE FUNCTION "Drive857A".InsertPayment(student_id INT, amount DECIMAL(10, 2), payment_date DATE, payment_method VARCHAR(50))
 RETURNS VOID AS $$
 DECLARE
     student_due DECIMAL(10, 2);
 BEGIN
     -- Get the current amount due for the student
     SELECT AmountDue INTO student_due
-    FROM DrivingStudent
+    FROM "Drive857A".DrivingStudent
     WHERE StudentID = student_id;
     
     -- Check if the amount to be paid is less than or equal to the amount due
     IF amount <= student_due THEN
-        -- Insert a payment record into the Payment table
-        INSERT INTO Payment (StudentID, Amount, PaymentDate, PaymentMethod)
-        VALUES (student_id, amount, payment_date, payment_method);
-        
         -- Update the student's amount due by deducting the payment amount
-        UPDATE DrivingStudent
+        UPDATE "Drive857A".DrivingStudent
         SET AmountDue = AmountDue - amount
         WHERE StudentID = student_id;
     ELSE
@@ -24,4 +21,14 @@ BEGIN
     END IF;
 END;
 $$ LANGUAGE plpgsql;
+
+-- Create or replace the payment_trigger function
+CREATE OR REPLACE FUNCTION "Drive857A".payment_trigger()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Return NEW to indicate successful insertion
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
 

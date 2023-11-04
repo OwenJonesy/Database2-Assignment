@@ -1,0 +1,27 @@
+-- Create a trigger that calls the function before an insert
+
+CREATE TRIGGER before_insert_check_duplicate
+
+BEFORE INSERT ON "Drive857A".DrivingStudent
+
+FOR EACH ROW
+
+EXECUTE FUNCTION "Drive857A".check_duplicate_student();
+
+
+
+-- Drop the existing trigger
+
+DROP TRIGGER IF EXISTS lesson_constraints_check ON "Drive857A".Lesson;
+
+-- Create the updated trigger
+
+CREATE TRIGGER lesson_constraints_check
+
+BEFORE INSERT
+
+ON "Drive857A".Lesson
+
+FOR EACH ROW
+
+EXECUTE FUNCTION "Drive857A".check_lesson_constraints();

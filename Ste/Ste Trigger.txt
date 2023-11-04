@@ -1,0 +1,6 @@
+-- Create or replace the trigger on the Payment table
+CREATE OR REPLACE TRIGGER payment_insert_trigger
+BEFORE INSERT ON Payment
+FOR EACH ROW
+EXECUTE FUNCTION "Drive857A".payment_trigger();
+

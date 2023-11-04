@@ -1,0 +1,159 @@
+-- Gavins
+CREATE OR REPLACE FUNCTION "Drive857A".add_student(
+
+    student_id INT,
+
+    student_name VARCHAR(255),
+
+    registration_number VARCHAR(50),
+
+    nct_status VARCHAR(50),
+
+    amount_due INT
+
+)
+
+RETURNS VOID AS $$
+
+BEGIN
+
+    INSERT INTO "Drive857A".DrivingStudent (StudentID, Name, RegistrationNumber, NCTStatus, AmountDue)
+
+    VALUES (student_id, student_name, registration_number, nct_status, amount_due);
+
+    -- Insert a corresponding record into the Assessment table
+
+    INSERT INTO "Drive857A".Assessment (StudentID) VALUES (student_id);
+
+END;
+
+$$ LANGUAGE plpgsql;
+
+
+
+
+CREATE OR REPLACE FUNCTION "Drive857A".check_duplicate_student()
+
+RETURNS TRIGGER AS $$
+
+BEGIN
+
+    IF EXISTS (
+
+        SELECT 1
+
+        FROM "Drive857A".DrivingStudent
+
+        WHERE Name = NEW.Name AND RegistrationNumber <> NEW.RegistrationNumber
+
+    ) THEN
+
+        RAISE EXCEPTION 'Duplicate person with a different student number detected';
+
+    END IF;
+
+    RETURN NEW;
+
+END;
+
+$$ LANGUAGE plpgsql;
+
+
+
+
+
+
+CREATE OR REPLACE FUNCTION "Drive857A".create_booking(
+
+    student_id INT,
+
+    instructor_id INT,
+
+    lesson_number INT,
+
+    lesson_topic VARCHAR(255),
+
+    staff_id INT,
+
+    booking_datetime TIMESTAMP
+
+) RETURNS VOID AS $$
+
+BEGIN
+
+    -- Insert a new record into the Lesson table
+
+    INSERT INTO "Drive857A".Lesson (StudentID, LessonNumber, LessonTopic)
+
+    VALUES (student_id, lesson_number, lesson_topic);
+
+    -- Insert a new booking record into the Booking table, linking it to the LessonID
+
+    INSERT INTO "Drive857A".Booking (StudentID, InstructorID, LessonID, StaffID, DateTime)
+
+    VALUES (student_id, instructor_id, currval('"Drive857A".lesson_lessonid_seq'), staff_id, booking_datetime);
+
+END;
+
+$$ LANGUAGE plpgsql;
+
+
+
+CREATE OR REPLACE FUNCTION "Drive857A".check_lesson_constraints() RETURNS TRIGGER AS $$
+
+BEGIN
+
+    -- Get the previous lesson number for the student
+
+    DECLARE
+
+        prev_lesson_number INT;
+
+    BEGIN
+
+        SELECT MAX(LessonNumber) INTO prev_lesson_number
+
+        FROM "Drive857A".Lesson AS l
+
+        WHERE l.StudentID = NEW.StudentID;
+
+        -- Check if the student has skipped a lesson
+
+        IF NEW.LessonNumber <> prev_lesson_number + 1 THEN
+
+            RAISE EXCEPTION 'Student skipped a lesson!';
+
+        END IF;
+
+    END;
+
+    -- Check if the student has exceeded estimated lessons
+
+    DECLARE
+
+        estimated_lessons INT;
+
+    BEGIN
+
+        SELECT EstimatedLessons INTO estimated_lessons
+
+        FROM "Drive857A".Assessment AS a
+
+        WHERE a.StudentID = NEW.StudentID;
+
+        IF NEW.LessonNumber > estimated_lessons THEN
+
+            RAISE EXCEPTION 'Student exceeded estimated lessons!';
+
+        END IF;
+
+    END;
+
+    RETURN NEW;
+
+END;
+
+$$ LANGUAGE plpgsql;
+
+
+

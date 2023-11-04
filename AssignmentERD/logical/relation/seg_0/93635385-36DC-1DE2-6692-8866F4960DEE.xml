@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="payment_drivingstudent_FK" directorySegmentName="seg_0" id="93635385-36DC-1DE2-6692-8866F4960DEE">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:16:04 UTC</createdTime>
+<generatorID>A2A81DE4-D6FB-E610-9F3B-B5A2C5826A69</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<sourcePk>B09A45C7-7D5C-7320-1F1F-A38F9C19BBD8</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>FCFA58F6-67AC-F218-9673-DB2039E14009</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>CF700F2E-E0CB-1B35-25DA-581091111BF7</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

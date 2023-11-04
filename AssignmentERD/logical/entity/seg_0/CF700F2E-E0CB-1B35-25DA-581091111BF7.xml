@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CF700F2E-E0CB-1B35-25DA-581091111BF7" name="payment">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:07:34 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="paymentid" id="57E4B353-3CA8-1583-F64A-284A3A701674">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:07:39 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="amount" id="F52F204A-3C88-02F4-A959-26F6D6F6ACDF">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:07:56 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="paymentdate" id="CE729214-0078-96AA-FE81-15ED0C0FAF09">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:08:05 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="paymentmethod" id="A37AAEC3-948A-F447-CB06-D36172F36F7D">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:08:15 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="drivingstudent studentid" id="738E863D-6967-7712-C4BA-03343A2FD223">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:16:04 UTC</createdTime>
+<generatorID>93635385-36DC-1DE2-6692-8866F4960DEE</generatorID>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="true"/>
+</engineerTo>
+<referedAttribute>BED21A93-9D0C-C7C2-03F2-6692D9E93324</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="71EB9566-831F-9E9C-843C-37F54E5AA195" name="payment PK">
+<createdBy>C21377551</createdBy>
+<createdTime>2023-10-27 21:07:46 UTC</createdTime>
+<ownerDesignName>AssignmentERD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="73CC1327-C9CA-F64C-840D-1935FE67214E" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>57E4B353-3CA8-1583-F64A-284A3A701674</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
